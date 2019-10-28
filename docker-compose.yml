@@ -6,7 +6,7 @@ services:
         volumes: 
             - ./conf:/etc/openvpn:rw
         ports:
-            - "11194:1194"
+            - "11194:1194/udp"
         cap_add:
             - NET_ADMIN
         restart: unless-stopped

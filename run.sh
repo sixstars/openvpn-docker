@@ -21,6 +21,7 @@ first_init(){
 add_user(){
     docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full $1 nopass
     docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_getclient $1 > $1.ovpn
+    touch ./conf/ccd/$1
 }
 
 route(){
@@ -35,7 +36,7 @@ show_help(){
     printf "Usage: ./run.sh cmd ...\n"
     printf "Cmds:\n"
     printf "    %-40s %s\n" "init" "init vpn config"
-    printf "    %-40s %s\n" "add <user>" "init vpn config"
+    printf "    %-40s %s\n" "add <user>" "config vpn client"
     printf "    %-40s %s\n" "route <user> <ip> <netmask>" "route specific ip to user"
 }
 

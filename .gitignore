@@ -1,4 +1,5 @@
 *.DS_Store
-./conf/*
-!./conf/.gitkeep
+conf/*
+!conf/.gitkeep
+*.swp
 
